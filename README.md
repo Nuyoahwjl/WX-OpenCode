@@ -1,30 +1,30 @@
-<div align="center">
+<h2>📖 简介</h2>
 
-<img src="./images/WeChat-OpenCode-Bridge.svg" alt="WeChat-OpenCode-Bridge" width="75%">
-<br>
+<img src="./images/WeChat-OpenCode-Bridge.svg" alt="WX-OpenCode" width="360" height="300" align="right">
 
+<p><strong>WX-OpenCode</strong> 是一个基于 Node.js 的桥接服务，让你通过微信使用 OpenCode AI。</p>
+<ul>
+  <li>🔗 连接微信个人账号与 OpenCode</li>
+  <li>💬 发送微信消息，获取 AI 回复</li>
+  <li>🔄 创建、管理和切换多个会话</li>
+  <li>📱 扫码绑定，快速开始使用</li>
+</ul>
 
-![TypeScript](https://img.shields.io/badge/TypeScript-5.9.3-blue?logo=typescript&logoColor=white)
-![Node.js](https://img.shields.io/badge/Node.js-24.14.1-green?logo=node.js&logoColor=white)
-![npm](https://img.shields.io/badge/npm-11.1.0-red?logo=npm&logoColor=white)
-![License](https://img.shields.io/badge/License-MIT-purple)
+<!-- <br clear="right"> -->
 
-
-</div>
-
-## 📖 简介
-WeChat OpenCode Bridge 是一个基于 Node.js 的桥接服务，它能够：
-- 🔗 连接微信个人账号与 OpenCode AI
-- 💬 通过微信发送消息，AI 自动回复
-- 🔄 支持多会话管理，随时切换
-- 📱 扫码绑定，简单快捷
+<p align="left">
+  <img src="https://img.shields.io/badge/TypeScript-5.9.3-blue?logo=typescript&amp;logoColor=white" alt="TypeScript 5.9.3" height="16">
+  <img src="https://img.shields.io/badge/Node.js-24.14.1-green?logo=node.js&amp;logoColor=white" alt="Node.js 24.14.1" height="16">
+  <img src="https://img.shields.io/badge/npm-11.1.0-red?logo=npm&amp;logoColor=white" alt="npm 11.1.0" height="16">
+  <img src="https://img.shields.io/badge/License-MIT-purple" alt="MIT License" height="16">
+</p>
 
 ## 🏗️ 项目架构
 ```mermaid
 flowchart LR
     %% 节点定义
     A["📱 微信客户端"]:::wechat
-    B["🌉 WeChat OpenCode<br/>Bridge"]:::bridge
+    B["🌉 WX-OpenCode"]:::bridge
     C["🤖 OpenCode Server"]:::opencode
     D["💾 本地存储<br/>~/.WeChat-OpenCode-Bridge/"]:::storage
 
@@ -43,9 +43,9 @@ flowchart LR
 ```
 
 ```
-WeChat-OpenCode-Bridge/
+WX-OpenCode/
 ├── src/
-│   ├── index.ts              # CLI 入口（setup、daemon、status 命令）
+│   ├── index.ts              # CLI 入口（setup、start、status 命令）
 │   ├── logger.ts             # 结构化日志单例
 │   ├── constants.ts          # 共享常量（路径、URL、限制）
 │   ├── config.ts             # 配置加载/保存
@@ -71,47 +71,49 @@ WeChat-OpenCode-Bridge/
 
 
 ## ✅ 前提条件
-- [x] **[Node.js](https://nodejs.org/)** 24+ — JavaScript 运行需要
-- [x] **[npm](https://www.npmjs.com/)** 11+ — Node.js 包管理器
-- [x] **[OpenCode](https://opencode.ai/)** — OpeCode Server
-- [x] **[WeChat](https://weixin.qq.com/)** >=8.0.70 — 支持Clawbot的账号
+- **[Node.js](https://nodejs.org/)** 24+ 和 **[npm](https://www.npmjs.com/)** 11+
+- 已安装并配置好 **[OpenCode](https://opencode.ai/)**
+- **[微信](https://weixin.qq.com/)** 8.0.70+，账号支持 Clawbot
 
 
 ## 🚀 使用方法
-- ### 1️⃣ 克隆仓库
-    ```bash
-    git clone https://github.com/Nuyoahwjl/WeChat-OpenCode-Bridge.git
-    cd WeChat-OpenCode-Bridge
-    ```
-- ### 2️⃣ 安装依赖
-    ```bash
-    npm install
-    ```
-    > 安装完成后会自动执行 `npm run build` 编译
-- ### 3️⃣ 绑定微信（首次使用）
-    ```bash
-    npm run setup
-    ```
-    > 扫描终端中的二维码完成绑定，以后不需要再绑定
-- ### 4️⃣ 启动 OpenCode 服务
-    ```bash
-    opencode serve
-    ```
-    > 在你的~~工作目录~~下运行
-- ### 5️⃣ 启动桥接服务
-    ```bash
-    npm run start
-    ```
-    > 在当前~~仓库目录~~下运行
+### 1. 安装并绑定微信
+
+```bash
+git clone https://github.com/Nuyoahwjl/WX-OpenCode.git
+cd WX-OpenCode
+npm install
+npm run setup
+```
+
+安装时会自动编译。首次使用时，用微信扫描终端中的二维码完成绑定。
+
+### 2. 启动 OpenCode
+
+另开一个终端，在你希望 OpenCode 操作的**工作目录**中运行：
+
+```bash
+opencode serve
+```
+
+### 3. 启动桥接服务
+
+回到 **WX-OpenCode 仓库目录**的终端，运行：
+
+```bash
+npm start
+```
+
+保持两个终端运行，即可通过微信发送消息。以后使用只需执行第 2、3 步；按 `Ctrl+C` 停止对应服务。
 
 ## 📋 可用命令
 | 命令 | 说明 |
 |------|------|
 | `npm run setup` | 扫码绑定微信（首次使用） |
-| `npm run start` | 启动桥接服务 |
+| `npm start` | 启动桥接服务 |
 | `npm run dev` | 开发模式（自动重新编译） |
 | `npm run build` | 手动编译 TypeScript |
-| `npm run status` | 显示当前绑定账号和会话状态 |
+| `npm run status` | 查看当前绑定账号 |
 
 
 ## 🔦 微信快捷指令
@@ -177,15 +179,12 @@ WeChat-OpenCode-Bridge/
 
 
 ## 🛠️ 开发相关
-- ### 类型检查
-    ```bash
-    npx tsc --noEmit
-    ```
-- ### 开发模式
-    ```bash
-    npm run dev
-    ```
-    修改代码后会自动重新编译，无需手动运行 `npm run build`。
+```bash
+npx tsc --noEmit  # 类型检查
+npm run dev      # 监听代码变更并自动编译
+```
+
+开发模式仅重新编译代码；运行桥接服务使用 `npm start`。
 
 
 ## 🧩 演示
