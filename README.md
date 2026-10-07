@@ -12,13 +12,6 @@
 
 <!-- <br clear="right"> -->
 
-<p align="left">
-  <img src="https://img.shields.io/badge/TypeScript-5.9.3-blue?logo=typescript&amp;logoColor=white" alt="TypeScript 5.9.3" height="16">
-  <img src="https://img.shields.io/badge/Node.js-24.14.1-green?logo=node.js&amp;logoColor=white" alt="Node.js 24.14.1" height="16">
-  <img src="https://img.shields.io/badge/npm-11.1.0-red?logo=npm&amp;logoColor=white" alt="npm 11.1.0" height="16">
-  <img src="https://img.shields.io/badge/License-MIT-purple" alt="MIT License" height="16">
-</p>
-
 ## 🏗️ 项目架构
 ```mermaid
 flowchart LR
@@ -199,3 +192,11 @@ npm run dev      # 监听代码变更并自动编译
     <img src="./images/demo-5.png" alt="demo-5" width="32%" style="display: inline-block;">
 </div>
 
+<br>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/TypeScript-5.9.3-blue?logo=typescript&amp;logoColor=white" alt="TypeScript 5.9.3" height="25">
+  <img src="https://img.shields.io/badge/Node.js-24.14.1-green?logo=node.js&amp;logoColor=white" alt="Node.js 24.14.1" height="25">
+  <img src="https://img.shields.io/badge/npm-11.1.0-red?logo=npm&amp;logoColor=white" alt="npm 11.1.0" height="25">
+  <img src="https://img.shields.io/badge/License-MIT-purple" alt="MIT License" height="25">
+</p>
